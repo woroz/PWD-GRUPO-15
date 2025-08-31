@@ -1,0 +1,22 @@
+.movie-info-box {
+    border: 2px solid #66bb6a;       
+    background-color: #e8f5e9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.movie-info-box h2.text-secondary {
+    color: #42a5f5 !important; 
+}
+
+
+.movie-info-box p {
+    margin-bottom: 5px;
+    color: #2e7d32;                   
+}
+
+.movie-info-box strong {
+    font-weight: bold;
+    color: #2e7d32;
+}
