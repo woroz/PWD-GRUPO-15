@@ -1,3 +1,4 @@
+<?php include_once "../structure/header.php"; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -104,6 +105,6 @@
 </div>
 
 <script src="../js/validacionej4.js"> </script>
-
+<?php include_once "../structure/footer.php"; ?>
 </body>
 </html>
