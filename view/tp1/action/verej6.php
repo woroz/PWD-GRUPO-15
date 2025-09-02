@@ -27,7 +27,7 @@ $mensaje = $obj->PoseeEstudioDeporte();
 </head>
 <body>
     <p><?php echo $mensaje; ?></p>
-    <a href="../../../index.php">Volver</a>
+    <a href="../formej6.php">Volver</a>
 </body>
 </html>
 <?php include_once(__DIR__ . "/../structure/footer.php"); ?>

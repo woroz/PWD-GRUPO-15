@@ -1,0 +1,4 @@
+INSERT INTO PERSONA (tipodoc, nrodoc, nombreP, apellidoP, fechaNacimiento) VALUES ('DNI', 94853120, 'Deborah', 'Williams', '1982-10-25');
+INSERT INTO PERSONA (tipodoc, nrodoc, nombreP, apellidoP, fechaNacimiento) VALUES ('DNI', 70070286, 'Richard', 'Medina', '2003-01-05');
+INSERT INTO PERSONA (tipodoc, nrodoc, nombreP, apellidoP, fechaNacimiento) VALUES ('DNI', 43378703, 'Robert', 'Stephens', '1989-11-20');
+INSERT INTO PERSONA (tipodoc, nrodoc, nombreP, apellidoP, fechaNac

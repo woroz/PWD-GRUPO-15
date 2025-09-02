@@ -1,3 +1,13 @@
+<?php
+if (file_exists("")){
+    $dir = "../../../index.html";
+}else{
+    $dir = "../../../../index.html";
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,7 +18,7 @@
 <header>
     <h1>TP1 - Programación Web Dinámica</h1>
     <nav>
-        <a href = "../../../index.php">Menú Principal</a>
+        <a href = "<?php echo $dir; ?>">Menú Principal</a>
     </nav>
 </header>
 <hr>
