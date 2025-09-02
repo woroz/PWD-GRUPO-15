@@ -4,17 +4,19 @@ class UserCinema {
     private $estudiante;
 
     public function __construct($edad, $estudiante) {
-        $this->edad = (int) $edad;
+        $this->edad = $edad;
         $this->estudiante = $estudiante;
     }
 
-    public function valorEntrada() {
-        $valor = 300;
-        if ($this->edad >= 12 && $this->estudiante === 'si') {
-           $valor = 180;
-        } elseif ($this->edad < 12 || $this->estudiante === 'si'){
-            $valor = 160;
-        }
-        return $valor;
+public function valorEntrada() {
+    if ($this->edad < 12 || $this->estudiante == "si" && $this->edad < 12) {
+        $precio = 160; 
+    } elseif ($this->estudiante == "si" && $this->edad >= 12) {
+        $precio = 180; 
+    } else {
+        $precio = 300; 
     }
+    return $precio;
+}
+
 }

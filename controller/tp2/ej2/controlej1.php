@@ -1,25 +1,19 @@
 <?php
 class Numero {
-    private $valor;
-
-    public function __construct($valor) {
-        $this->valor = (int) $valor;
+    private $num;
+    public function __construct($num) {
+        $this->num = $num;
     }
 
-    public function getValor() {
-        return $this->valor;
-    }
-
-    public function tipo() {
-      $nro = "Incorrecto";
-      $num = $this->getValor();
-        if ($num === 0) {
-          $nro = "cero";
-        } elseif ($num > 0) {
-          $nro = "positivo";
+    public function Tipo() {
+        $res = "El numero " . $this->num . " es positivo";
+        if ($this->num < 0) {
+           $res = "El numero " . $this->num . " es negativo";
         } else {
-          $nro = "negativo";
+              if ($this->num == 0) {
+                $res = "El numero " . $this->num . " es 0";
+              }
         }
-        return $nro;
+        return $res;
     }
 }
