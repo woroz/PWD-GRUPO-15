@@ -34,6 +34,7 @@ class Archivo{
         }else {
             $arrayErrores['pdfoword'] = false;
         }
+        $arrayErrores['tipo'] = htmlspecialchars($fileType);
     } else {
         $error = $_FILES['miArchivo']['error'];
         $arrayErrores['error'] = $error;
@@ -42,7 +43,6 @@ class Archivo{
     if (isset($arrayErrores['subido']) && $arrayErrores['subido'] === true) {
     $arrayErrores['ruta'] = $targetFile;
 }
-    $arrayErrores['tipo'] = htmlspecialchars($fileType);
     return $arrayErrores;
 }
 }
