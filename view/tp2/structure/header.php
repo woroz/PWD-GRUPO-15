@@ -16,7 +16,7 @@
 <header>
     <h1>TP2 - Programación Web Dinámica</h1>
     <nav>
-        <a href = "../../../index.php">Menú Principal</a>
+        <a href = "/PWD-GRUPO-15/index.html">Menú Principal</a>
     </nav>
 </header>
 <hr>

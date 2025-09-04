@@ -8,7 +8,7 @@
 <header>
     <h1>TP1 - Programación Web Dinámica</h1>
     <nav>
-        <a href = "../../../index.html">Menú Principal</a>
+        <a href = "/PWD-GRUPO-15/index.html">Menú Principal</a>
     </nav>
 </header>
 <hr>

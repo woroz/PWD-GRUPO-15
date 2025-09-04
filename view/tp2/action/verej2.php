@@ -23,7 +23,7 @@ $mensaje = $obj->totalHoras();
 </head>
 <body>
     <p><?php echo "Las horas totales son: " . $mensaje; ?></p>
-    <a href="../../../index.php">Volver</a>
+    <a href="../ej2/formej2.php">Volver</a>
 </body>
 </html>
 <?php include_once(__DIR__ . "/../structure/footer.php"); ?>

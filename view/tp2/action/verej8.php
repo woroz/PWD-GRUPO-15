@@ -20,7 +20,7 @@ $mensaje = $operacion->valorEntrada();
 </head>
 <body>
     <p><?= "El precio es: " . $mensaje; ?></p>
-    <a href="../../../index.php">Volver</a>
+    <a href="../ej2/formej8.php">Volver</a>
 </body>
 </html>
 <?php include_once(__DIR__ . "/../structure/footer.php"); ?>

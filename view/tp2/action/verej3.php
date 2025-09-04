@@ -30,7 +30,9 @@ $loginMessage = $obj->validarUser();
         <?php endif; ?>
     </div>
 </div>
-
+  <div class="d-flex justify-content-center mt-4">
+        <a href="../ej3/formej3.php" class="btn btn-primary">Volver</a>
+    </div>
 </body>
 </html>
 

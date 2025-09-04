@@ -21,7 +21,7 @@ $mensaje = $obj->tipo();
 <body>
     <h1>Ver numero ingresado</h1>
     <p><?php echo "El numero ingresado es " . $mensaje; ?></p>
-    <a href="../formej1.php">Volver a intentar</a>
+    <a href="../ej2/formej1.php">Volver a intentar</a>
 </body>
 </html>
 <?php include_once(__DIR__ . "/../structure/footer.php"); ?>

@@ -41,7 +41,7 @@ $datosPelicula = $obj->Cinema();
     </div>
 
     <div class="d-flex justify-content-center mt-4">
-        <a href="../../../index.php" class="btn btn-primary">Volver</a>
+        <a href="../ej4/formej4.php" class="btn btn-primary">Volver</a>
     </div>
 
 </div>
