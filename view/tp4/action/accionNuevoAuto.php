@@ -22,12 +22,16 @@ foreach ($personas as $objPersona){
 <head>
     <meta charset="UTF-8">
     <title>Nueva Persona</title>
+        <link rel="stylesheet" href="../../bootstrap-5.1.3-dist/css/bootstrap.css">
 </head>
 <body>
 <?php if (($nuevoAuto != null) && ($encontrado)){ ?>
-<h1>Auto registrado con éxito.</h1>
+<div class="card-header bg-light">
+<h1 align="center" >Auto registrado con éxito.</h1>
+</div>
 <br>
-<table border="1" cellpadding="5" cellspacing="0">
+<div class="container d-flex justify-content-center align-items-center" style="min-height:70vh;">
+<table class="table" border="1" cellpadding="5" cellspacing="0">
         <thead>
             <tr>
                 <th>Patente</th>
@@ -45,14 +49,38 @@ foreach ($personas as $objPersona){
             </tr>
         </tbody>
     </table>
-    <br>
+</div>
+    <div class="col-12 text-center">
+<button type="button" class="btn btn-primary" onclick="history.back();">
+    Volver
+</button>
+</div>
 <?php } elseif (!$encontrado) { ?>
-    <h1>Persona no encontrada.</h1>
+    <div class="card-header bg-light">
+    <h1 align="center" >Persona no encontrada.</h1>
+    </div>
+    <br><br>
+    <div class="col-12 text-center">
     <a href="../nuevaPersona.php">
-      <button type="button">Agregar Persona</button>
+      <button type="button" class="btn btn-secondary">Agregar Persona</button>
     </a>
+    </div>
+    <br>
+    <div class="col-12 text-center">
+    <button type="button" class="btn btn-primary" onclick="history.back();">
+        Volver
+    </button>
+    </div>
 <?php } elseif ($nuevoAuto == null) { ?>
-    <h1>Este Auto ya está registrado.</h1>
+    <div class="card-header bg-light">
+    <h1 align="center" >Este Auto ya está registrado.</h1>
+    </div>
+    <br><br>
+    <div class="col-12 text-center">
+    <button type="button" class="btn btn-secondary" onclick="history.back();">
+        Volver
+    </button>
+    </div>
 <?php } ?>
 </body>
 </html>
