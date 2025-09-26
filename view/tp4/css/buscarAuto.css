@@ -1,0 +1,22 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+}
+label{
+    font-size: 1.2em;
+}
+#patente{
+    border-radius: 5px;
+    height: 24px;
+    width: 150px;
+}
+#enviar{
+    background-color: rgb(75, 130, 232);
+    color: white;
+    width: 70px;
+    height: 33px;
+    padding: 2px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}

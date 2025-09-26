@@ -98,13 +98,13 @@ class ambAuto {
     /**
     * permite buscar un objeto
     * @param array $param
-    * @return boolean
+    * @return array
     */
     public function buscar($param){
         $where = " true ";
         if ($param <> NULL){
             if  (isset($param['Patente']))
-                $where.=" and Patente =".$param['Patente'];
+                $where.=" and Patente ='".$param['Patente']."'";
 
             if  (isset($param['Marca']))
                 $where.=" and Marca ='".$param['Marca']."'";

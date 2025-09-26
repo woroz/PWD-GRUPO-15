@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/persona.php';
+require_once __DIR__ . '/../../model/persona.php';
 class AbmPersona {
     /**
     * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto que son claves
@@ -93,7 +93,7 @@ class AbmPersona {
     /**
     * permite buscar un objeto
     * @param array $param
-    * @return boolean
+    * @return array
     */
     public function buscar($param){
         $where = " true ";
@@ -116,7 +116,8 @@ class AbmPersona {
             if  (isset($param['Domicilio']))
                 $where.=" and Domicilio ='".$param['Domicilio']."'";
         }
-        $arreglo = Persona::listar($where); 
+        $objPersona=new Persona();
+        $arreglo = $objPersona->listar($where); 
         
         $resultado = [];
         foreach ($arreglo as $persona) {
@@ -129,7 +130,7 @@ class AbmPersona {
                 'Domicilio' => $persona->getDomicilio()
             ];
         }
-        return $arreglo;
+        return $resultado;
     }
 
 }
