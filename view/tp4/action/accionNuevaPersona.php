@@ -11,12 +11,16 @@ $objNuevaPersona = $objAbmPersona->insertarPersona($datos);
 <head>
     <meta charset="UTF-8">
     <title>Nueva Persona</title>
+    <link rel="stylesheet" href="../../bootstrap-5.1.3-dist/css/bootstrap.css">
 </head>
 <body>
 <?php if ($objNuevaPersona != null){ ?>
-<h1>Registrado con éxito.</h1>
+<div class="card-header bg-light">
+<h1 align="center">Registrado con éxito.</h1>
+</div>
 <br>
-<table border="1" cellpadding="5" cellspacing="0">
+<div class="container d-flex justify-content-center align-items-center" style="min-height:70vh;">
+<table class="table" border="1" cellpadding="5" cellspacing="0">
         <thead>
             <tr>
                 <th>Número DNI</th>
@@ -38,8 +42,23 @@ $objNuevaPersona = $objAbmPersona->insertarPersona($datos);
             </tr>
         </tbody>
     </table>
+</div>
+<br>
+<div class="col-12 text-center">
+<button type="button" class="btn btn-primary" onclick="history.back();">
+    Volver
+</button>
+</div>
 <?php }else{ ?>
-    <h1>Algún dato no es válido o ya está registrado.</h1>
+    <div class="card-header bg-light">
+    <h1 align="center">Algún dato no es válido o ya está registrado.</h1>
+    </div>
+    <br><br>
+    <div class="col-12 text-center">
+    <button type="button" class="btn btn-secondary" onclick="history.back();">
+        Volver
+    </button>
+    </div>
 <?php } ?>
 </body>
 </html>
