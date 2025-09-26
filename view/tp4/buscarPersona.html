@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buscar Persona</title>
+  <style>
+    label.error-message{color:#d00;font-size:.9rem;display:block;margin-top:4px}
+    input.error{border-color:#d00}
+  </style>
+</head>
+<body>
+  <h2>Buscar Persona por DNI</h2>
+
+  <form action="action/accionBuscarPersona.php" method="post" id="formBuscarPersona" novalidate>
+    <label for="dni">Documento (DNI):</label><br>
+    <input type="text" id="dni" name="dni">
+    <label id="error-message-dni" class="error-message"></label>
+    <br><br>
+
+    <input type="submit" value="Buscar">
+  </form>
+
+  <script src="js/editarPersona.js"></script>
+</body>
+</html>
