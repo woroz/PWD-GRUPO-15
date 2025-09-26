@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../../../controller/tp4/abmPersona.php';
-require_once __DIR__ . '../../../../model/persona.php';
+require_once __DIR__ . '/../../../model/persona.php';
 
 $errores = [];
 $personaData = null;
@@ -61,7 +61,7 @@ if ($dni === '') {
 <?php elseif ($personaData): ?>
   <div class="ok">Persona encontrada. Redirigiendo al formulario de edición…</div>
 
-  <!-- Auto-POST a solicitarDatosForm.php con los datos -->
+
   <form id="redir" action="../solicitarDatosForm.php" method="post">
     <input type="hidden" name="dni" value="<?= htmlspecialchars($personaData['NroDni']) ?>">
     <input type="hidden" name="nombre" value="<?= htmlspecialchars($personaData['Nombre']) ?>">

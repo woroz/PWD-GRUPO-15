@@ -8,10 +8,10 @@ class AbmPersona {
     */
     private function cargarObjetoConClave ($param) {
         $obj = null;
-        if (isset ($param['nroDni'])) {
-            $obj = new Persona();
-            $obj->setnroDni($param['nroDni']);
-            $obj->cargar();
+        if (isset($param['NroDni'])) {          
+        $obj = new Persona();
+        $obj->setNroDni($param['NroDni']);  
+        $obj->cargar();
         }
         return $obj;
     }
@@ -30,6 +30,7 @@ class AbmPersona {
             $obj = new Persona ();
             $obj->setear($param['NroDni'], $param['Apellido'], $param['Nombre'], $param['fechaNac'], $param['Telefono'], $param['Domicilio']);
         }
+        return $obj;
     }
 
     /**
@@ -79,17 +80,33 @@ class AbmPersona {
     * @param array $param
     * @return boolean
     */
-    public function modificacion($param){
-        $resp = false;
-        if ($this->seteadosCamposClaves($param)){
-            $elObjtTabla = $this->cargarObjeto($param);
-            if($elObjtTabla!=null and $elObjtTabla->modificar()){
-                $resp = true;
-            }
-        }
-        return $resp;
+  public function modificacion($param){
+    // Debe venir el DNI como clave
+    if (!$this->seteadosCamposClaves($param)) {
+        return false;
     }
 
+    // Traer el registro actual para completar campos que no vengan
+    $actual = $this->buscar(['NroDni' => $param['NroDni']]);
+    if (!is_array($actual) || count($actual) === 0) {
+        return false; // no existe el DNI
+    }
+    $act = $actual[0]; // array asociativo
+
+    // Armar el payload COMPLETO que exige cargarObjeto()
+    $completo = [
+        'NroDni'   => $param['NroDni'],
+        'Apellido' => $param['Apellido']  ?? $act['Apellido'],
+        'Nombre'   => $param['Nombre']    ?? $act['Nombre'],
+        'fechaNac' => $param['fechaNac']  ?? $act['fechaNac'],
+        'Telefono' => $param['Telefono']  ?? $act['Telefono'],
+        'Domicilio'=> $param['Domicilio'] ?? $act['Domicilio'],
+    ];
+
+    // Construir el objeto y ejecutar el update
+    $obj = $this->cargarObjeto($completo);
+    return ($obj !== null) && $obj->modificar();
+}
     /**
     * permite buscar un objeto
     * @param array $param
