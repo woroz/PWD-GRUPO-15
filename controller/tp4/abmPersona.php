@@ -133,4 +133,48 @@ class AbmPersona {
         return $resultado;
     }
 
+    // EJ 4
+
+    public function mostrarPersonas() {
+        $personas = [];
+        $persona = new Persona();   // Modelo Auto
+
+        $lista = $persona->listar();  // Método listar() en Auto (Modelo)
+        if (count($lista) > 0) {
+            foreach ($lista as $objPersona) {
+                $personas[] = $objPersona;
+            }
+        }
+        return $personas;
+    }
+
+    public function insertarPersona($datos){
+    $objAbmPersona = new AbmPersona();
+    $arrayPersonas = $objAbmPersona->mostrarPersonas();
+
+    // Verifico si el DNI ya existe
+    foreach ($arrayPersonas as $objPersona){
+        if ($objPersona->getNroDni() == $datos['nroDni']){
+            return null; // ya existe, no insertamos
+        }
+    }
+
+    // Si no existe -> creo una nueva Persona
+    $objPersona = new Persona();
+    $objPersona->setear(
+        $datos['nroDni'],
+        $datos['apellido'],
+        $datos['nombre'],
+        $datos['fechaNac'],
+        $datos['telefono'],
+        $datos['domicilio']
+    );
+
+    if ($objPersona->insertar()) {   // usar método insertar() del modelo Persona
+        return $objPersona;          // devuelvo el objeto ya guardado
+    }
+
+    return null; // si falló la inserción
+}
+
 }

@@ -11,7 +11,7 @@ class auto{
         $this->patente = "";
         $this->marca = "";
         $this->modelo = "";
-        $this->objPersona = "";
+        $this->objPersona = new Persona();
         $this->mensajeoperacion = "";
     }
 
@@ -86,38 +86,43 @@ class auto{
         return $resp;
     }
 
-public function insertar() {
-    $resp = false;
-    $base = new BaseDatos();
-    $objPersona = $this->getObjPersona();
-    $dni = null;
+// Insertar
+    public function insertar($datos) {
+        $base = new BaseDatos();
+        $sql = "INSERT INTO auto (Patente, Marca, Modelo, DniDuenio) 
+                VALUES (:patente, :marca, :modelo, :nroDni)";
+        
+        try {
+            $stmt = $base->prepare($sql);
+            $stmt->execute([
+            ':patente'    => $datos['patente'],
+            ':marca'  => $datos['marca'],
+            ':modelo'    => $datos['modelo'],
+            ':nroDni'  => $datos['nroDni'],
+        ]);
 
-    if (is_object($objPersona) && method_exists($objPersona, 'getNroDni')) {
-        $dni = $objPersona->getNroDni();
-    } else {
-        $this->setMensajeoperacion("Error: Persona no válida.");
-        return false; 
-    }
+        // Creo el dueño como Persona
+        $objPersona = new Persona();
+        $objPersona->setNroDni($datos['nroDni']);
+        $objPersona->cargar(); // carga todos los datos desde la BD
 
-    $sql = "INSERT INTO auto (Patente, Marca, Modelo, DniDuenio) 
-            VALUES ('" . $this->getPatente() . "', 
-                    '" . $this->getMarca() . "', 
-                    '" . $this->getModelo() . "', 
-                    '" . $dni . "');";
+        // Creo el Auto y le seteo la persona
+        $objAuto = new Auto();
+        $objAuto->setPatente($datos['patente']);
+        $objAuto->setMarca($datos['marca']);
+        $objAuto->setModelo($datos['modelo']);
+        $objAuto->setObjPersona($objPersona);
+            
 
-    if ($base->Iniciar()) {
-        if ($base->Ejecutar($sql)) {
-            $this->setPatente($elid);
-            $resp = true;
-        } else {
-            $this->setMensajeoperacion("Auto->insertar: " . $base->getError());
+        } catch (PDOException $e) {
+        if ($e->getCode() == 23000) {
+            // Este es el error de clave primaria duplicada
+            return null; // o devolver un mensaje personalizado
         }
-    } else {
-        $this->setMensajeoperacion("Auto->insertar: " . $base->getError());
+        throw $e; // otros errores los re-lanzamos
+        }
+        return $objAuto;
     }
-    return $resp;
-}
-
 
     public function modificar() {
     $resp = false;

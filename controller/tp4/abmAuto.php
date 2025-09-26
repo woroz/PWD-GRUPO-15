@@ -135,4 +135,36 @@ class ambAuto {
         }
         return $resultado;
     }
+
+    //EJ 5
+
+    public function mostrarAutos() {
+        $autos = [];
+        $auto = new Auto();   
+
+        $lista = $auto->listar();  
+        if (count($lista) > 0) {
+            foreach ($lista as $objAuto) {
+                $autos[] = $objAuto;
+            }
+        }
+        return $autos;
+    }
+
+    public function insertarAuto($datos){
+    $objAbmAuto = new ambAuto();
+    $arrayAutos = $objAbmAuto->mostrarAutos();
+
+    // Verifico si la patente ya existe
+    foreach ($arrayAutos as $objAuto){
+        if ($objAuto->getPatente() == $datos['patente']){
+            return null; // ya existe, no insertamos
+        }
+    }
+
+    // Si llegamos acá, no existe y podemos insertar
+    $objAuto = new Auto();
+    $nuevoAuto = $objAuto->insertar($datos);
+    return $nuevoAuto;
+    }
 }
